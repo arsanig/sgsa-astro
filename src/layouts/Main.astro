@@ -29,7 +29,7 @@ const { title = m.LAYOUT_SITE_TITLE(), description = "" } = Astro.props;
             loading="eager"
             fetchpriority="high"
         />
-        <main>
+        <main class="min-h-screen">
             <Nav />
             <slot />
         </main>

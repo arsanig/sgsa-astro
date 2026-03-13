@@ -39,12 +39,12 @@ const dropdowns = [
 ];
 
 const linkClasses = (href: string) =>
-    isActive(href) ? "font-didot italic text-lg text-gold underline decoration-gold underline-offset-4" : "font-didot italic text-lg text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+    isActive(href) ? "font-cormorant italic text-lg md:text-xl text-gold underline decoration-gold underline-offset-4" : "font-cormorant italic text-lg md:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const mobileLinkClasses = (href: string) =>
     isActive(href)
-        ? "font-didot italic text-lg text-gold underline decoration-gold underline-offset-4"
-        : "font-didot italic text-lg text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+        ? "font-cormorant italic text-lg md:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-cormorant italic text-lg md:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isActive(l.href));
 ---
@@ -76,7 +76,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-didot italic text-lg font-medium h-14 md:h-20 transition-colors",
+                                        "flex items-center px-5 py-2 font-cormorant italic text-lg md:text-xl font-medium h-14 md:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -138,7 +138,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-didot italic text-lg font-medium h-14 md:h-20 transition-colors",
+                                        "flex items-center px-5 py-2 font-cormorant italic text-lg md:text-xl font-medium h-14 md:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -245,7 +245,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-didot italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-cormorant italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}
@@ -302,7 +302,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-didot italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-cormorant italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}
