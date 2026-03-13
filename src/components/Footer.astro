@@ -1,0 +1,22 @@
+---
+import * as m from "@paraglide/messages.js";
+---
+
+<footer class="bg-platinum shadow-sm">
+    <div class="max-w-11/12 mx-auto px-4 min-h-[40vh] md:min-h-[55vh] flex flex-col">
+        <img src="/assets/images/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-20 md:h-36 w-auto self-start mt-6" />
+        <div class="mt-auto">
+            <hr class="border-gold/30 mb-3" />
+            <div class="text-left text-[10px] md:text-xs text-gold pb-3 space-y-0">
+                <p>
+                    <span set:html={m.FOOTER_COPYRIGHT({ copy: "&copy;", year: new Date().getFullYear() })} />
+                    <span
+                        set:html={m.FOOTER_DIOCESE({
+                            dioceseName: `<a href="https://eccopts.ca/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:opacity-80">${m.DIOCESE_NAME()}</a>`,
+                        })}
+                    />
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

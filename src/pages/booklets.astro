@@ -1,10 +1,8 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
 import * as m from "@paraglide/messages.js";
 ---
 
-<Layout title={m.BOOKLETS_PAGE_TITLE()}>
-	<main>
-		<h1>{m.BOOKLETS_PAGE_TITLE()}</h1>
-	</main>
-</Layout>
+<Main title={m.BOOKLETS_PAGE_TITLE()} description={""}>
+    <h1>{m.BOOKLETS_PAGE_TITLE()}</h1>
+</Main>
