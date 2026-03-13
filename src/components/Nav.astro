@@ -1,0 +1,146 @@
+---
+import * as m from "@paraglide/messages.js";
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => currentPath === path || (path !== "/" && currentPath.startsWith(path));
+---
+
+<nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+		<div class="flex justify-end h-14 items-center">
+			<!-- Desktop nav links (centered) -->
+			<div class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center">
+				<a href="/" class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+					{m.NAV_HOME()}
+				</a>
+				<a href="/about" class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+					{m.NAV_ABOUT()}
+				</a>
+				<a href="/contact" class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+					{m.NAV_CONTACT()}
+				</a>
+				<a href="/schedule" class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+					{m.NAV_SCHEDULE()}
+				</a>
+				<a href="/donations" class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+					{m.NAV_DONATIONS()}
+				</a>
+				<div class="relative group">
+					<button
+						type="button"
+						class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 font-medium h-14"
+						aria-expanded="false"
+						aria-haspopup="true"
+						id="resources-menu-button"
+					>
+						{m.NAV_RESOURCES()}
+						<svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+							<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+						</svg>
+					</button>
+					<div
+						class="absolute left-0 top-full w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 py-1 hidden group-hover:block"
+						role="menu"
+						aria-orientation="vertical"
+						aria-labelledby="resources-menu-button"
+					>
+						<div class="py-1">
+							<a href="/booklets" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_BOOKLETS()}</a>
+							<a href="/sermons" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_SERMONS()}</a>
+							<a href="/servants" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_SERVANTS()}</a>
+							<a href="/beechwood" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_BEECHWOOD()}</a>
+							<a href="/cottage" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_COTTAGE()}</a>
+							<a href="/deacons-schedule" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_DEACONS_SCHEDULE()}</a>
+							<a href="/library" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_LIBRARY()}</a>
+							<a href="/lighthouse" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_LIGHTHOUSE()}</a>
+							<a href="/live" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_LIVE()}</a>
+							<a href="/new-comers" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_NEW_COMERS()}</a>
+							<a href="/posts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_POSTS()}</a>
+							<a href="/relics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_RELICS()}</a>
+							<a href="/sacraments" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{m.NAV_SACRAMENTS()}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Hamburger button (mobile only) -->
+			<button
+				type="button"
+				class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+				aria-controls="mobile-menu"
+				aria-expanded="false"
+				id="mobile-menu-button"
+			>
+				<span class="sr-only">{m.NAV_OPEN_MAIN_MENU()}</span>
+				<!-- Hamburger icon -->
+				<svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				</svg>
+				<!-- Close icon -->
+				<svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile menu -->
+	<div class="hidden md:hidden" id="mobile-menu">
+		<div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200">
+			<a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">{m.NAV_HOME()}</a>
+			<a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">{m.NAV_ABOUT()}</a>
+			<a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">{m.NAV_CONTACT()}</a>
+			<a href="/schedule" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">{m.NAV_SCHEDULE()}</a>
+			<a href="/donations" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">{m.NAV_DONATIONS()}</a>
+
+			<!-- Resources accordion -->
+			<button
+				type="button"
+				class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+				id="mobile-resources-button"
+			>
+				{m.NAV_RESOURCES()}
+				<svg id="resources-chevron" class="h-4 w-4 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+					<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+				</svg>
+			</button>
+			<div class="hidden pl-4 space-y-1" id="mobile-resources-menu">
+				<a href="/booklets" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_BOOKLETS()}</a>
+				<a href="/sermons" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_SERMONS()}</a>
+				<a href="/servants" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_SERVANTS()}</a>
+				<a href="/beechwood" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_BEECHWOOD()}</a>
+				<a href="/cottage" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_COTTAGE()}</a>
+				<a href="/deacons-schedule" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_DEACONS_SCHEDULE()}</a>
+				<a href="/library" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_LIBRARY()}</a>
+				<a href="/lighthouse" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_LIGHTHOUSE()}</a>
+				<a href="/live" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_LIVE()}</a>
+				<a href="/new-comers" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_NEW_COMERS()}</a>
+				<a href="/posts" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_POSTS()}</a>
+				<a href="/relics" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_RELICS()}</a>
+				<a href="/sacraments" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100">{m.NAV_SACRAMENTS()}</a>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	const menuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const hamburgerIcon = document.getElementById('hamburger-icon');
+	const closeIcon = document.getElementById('close-icon');
+	const resourcesButton = document.getElementById('mobile-resources-button');
+	const resourcesMenu = document.getElementById('mobile-resources-menu');
+	const resourcesChevron = document.getElementById('resources-chevron');
+
+	menuButton?.addEventListener('click', () => {
+		const isOpen = !mobileMenu?.classList.contains('hidden');
+		mobileMenu?.classList.toggle('hidden');
+		hamburgerIcon?.classList.toggle('hidden');
+		closeIcon?.classList.toggle('hidden');
+		menuButton.setAttribute('aria-expanded', String(!isOpen));
+	});
+
+	resourcesButton?.addEventListener('click', () => {
+		resourcesMenu?.classList.toggle('hidden');
+		resourcesChevron?.classList.toggle('rotate-180');
+	});
+</script>
