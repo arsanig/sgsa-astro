@@ -39,25 +39,25 @@ const dropdowns = [
 ];
 
 const linkClasses = (href: string) =>
-    isActive(href) ? "font-cormorant italic text-lg md:text-xl text-gold underline decoration-gold underline-offset-4" : "font-cormorant italic text-lg md:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+    isActive(href) ? "font-cormorant italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4" : "font-cormorant italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const mobileLinkClasses = (href: string) =>
     isActive(href)
-        ? "font-cormorant italic text-lg md:text-xl text-gold underline decoration-gold underline-offset-4"
-        : "font-cormorant italic text-lg md:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+        ? "font-cormorant italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-cormorant italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isActive(l.href));
 ---
 
 <nav class="sticky top-0 z-60 bg-platinum shadow-sm">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-14 md:h-20 items-center">
-            <!-- Mobile logo -->
-            <a href="/" class="md:hidden">
+        <div class="flex justify-between h-14 lg:h-20 items-center">
+            <!-- Mobile/Tablet logo -->
+            <a href="/" class="lg:hidden">
                 <img src="/assets/images/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-14 w-auto" />
             </a>
             <!-- Desktop: logo left, nav links centered -->
-            <div class="hidden md:flex items-center w-full relative">
+            <div class="hidden lg:flex items-center w-full relative">
                 <a href="/" id="desktop-logo" class="absolute" style="top: 50%; transform: translateY(-50%);">
                     <img src="/assets/images/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-20 w-auto" />
                 </a>
@@ -72,11 +72,11 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 
                     {
                         dropdowns.slice(0, 1).map(({ id, label, links }) => (
-                            <div class="relative group">
+                            <div class="relative group" data-desktop-dropdown={id}>
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-cormorant italic text-lg md:text-xl font-medium h-14 md:h-20 transition-colors",
+                                        "flex items-center px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -100,7 +100,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                     </svg>
                                 </button>
                                 <div
-                                    class="absolute left-0 top-full w-56 pt-2 hidden group-hover:block"
+                                    class="absolute left-0 top-full w-56 pt-2 hidden group-hover:block dropdown-panel"
                                     role="menu"
                                     aria-orientation="vertical"
                                     aria-labelledby={`${id}-menu-button`}
@@ -134,11 +134,11 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 
                     {
                         dropdowns.slice(1).map(({ id, label, links }) => (
-                            <div class="relative group">
+                            <div class="relative group" data-desktop-dropdown={id}>
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-cormorant italic text-lg md:text-xl font-medium h-14 md:h-20 transition-colors",
+                                        "flex items-center px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -162,7 +162,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                     </svg>
                                 </button>
                                 <div
-                                    class="absolute left-0 top-full w-56 pt-2 hidden group-hover:block"
+                                    class="absolute left-0 top-full w-56 pt-2 hidden group-hover:block dropdown-panel"
                                     role="menu"
                                     aria-orientation="vertical"
                                     aria-labelledby={`${id}-menu-button`}
@@ -188,10 +188,10 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                 </div>
             </div>
 
-            <!-- Hamburger button (mobile) -->
+            <!-- Hamburger button (mobile/tablet) -->
             <button
                 type="button"
-                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gold hover:bg-white/10"
+                class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gold hover:bg-white/10"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
                 id="mobile-menu-button"
@@ -220,7 +220,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 
 <div
     id="mobile-menu"
-    class="md:hidden fixed left-0 right-0 h-[calc(100vh-3.5rem)] z-50 overflow-y-auto transition-transform duration-300 ease-in-out"
+    class="lg:hidden fixed left-0 right-0 h-[calc(100vh-3.5rem)] z-50 overflow-y-auto transition-transform duration-300 ease-in-out"
     style="top: 3.5rem; transform: translateY(-100vh);"
 >
     <div class="px-2 pt-2 pb-3 space-y-1 min-h-full bg-platinum">
@@ -369,6 +369,34 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
         }
     });
 
+    // Desktop dropdown click-to-toggle (for touch devices like iPad/tablet)
+    document.querySelectorAll<HTMLDivElement>("[data-desktop-dropdown]").forEach((wrapper) => {
+        const btn = wrapper.querySelector("button");
+        btn?.addEventListener("click", () => {
+            const isOpen = wrapper.classList.contains("dropdown-open");
+            // Close all other open dropdowns
+            document.querySelectorAll<HTMLDivElement>("[data-desktop-dropdown]").forEach((other) => {
+                other.classList.remove("dropdown-open");
+                other.querySelector("button")?.setAttribute("aria-expanded", "false");
+            });
+            if (!isOpen) {
+                wrapper.classList.add("dropdown-open");
+                btn.setAttribute("aria-expanded", "true");
+            }
+        });
+    });
+
+    // Close desktop dropdowns when clicking outside
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest("[data-desktop-dropdown]")) {
+            document.querySelectorAll<HTMLDivElement>("[data-desktop-dropdown]").forEach((wrapper) => {
+                wrapper.classList.remove("dropdown-open");
+                wrapper.querySelector("button")?.setAttribute("aria-expanded", "false");
+            });
+        }
+    });
+
     document.querySelectorAll<HTMLButtonElement>("[data-accordion]").forEach((btn) => {
         btn.addEventListener("click", () => {
             const id = btn.dataset.accordion;
@@ -377,3 +405,9 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
         });
     });
 </script>
+
+<style>
+    .dropdown-open .dropdown-panel {
+        display: block;
+    }
+</style>
