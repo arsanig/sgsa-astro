@@ -54,14 +54,14 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
         <div class="flex justify-between h-14 lg:h-20 items-center">
             <!-- Mobile/Tablet logo -->
             <a href="/" class="lg:hidden">
-                <img src="/assets/images/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-14 w-auto" />
+                <img src="/icons/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-14 w-auto" />
             </a>
             <!-- Desktop: logo left, nav links centered -->
-            <div class="hidden lg:flex items-center w-full relative">
-                <a href="/" id="desktop-logo" class="absolute" style="top: 50%; transform: translateY(-50%);">
-                    <img src="/assets/images/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-20 w-auto" />
+            <div class="hidden lg:grid grid-cols-[auto_1fr_auto] items-center w-full">
+                <a href="/" class="flex-shrink-0">
+                    <img src="/icons/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-20 w-auto" />
                 </a>
-                <div id="desktop-nav-links" class="flex items-center gap-14 mx-auto">
+                <div class="flex items-center justify-center gap-4 xl:gap-10">
                     {
                         navLinks.slice(0, 1).map(({ href, label }) => (
                             <a href={href} class:list={["px-3 py-2 font-medium transition-colors", linkClasses(href)]}>
@@ -76,7 +76,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-2 xl:px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -138,7 +138,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-2 xl:px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -186,6 +186,8 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                         ))
                     }
                 </div>
+                <!-- Spacer to balance logo width for centered nav -->
+                <div></div>
             </div>
 
             <!-- Hamburger button (mobile/tablet) -->
@@ -341,18 +343,6 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 </div>
 
 <script>
-    function positionDesktopLogo() {
-        const logo = document.getElementById("desktop-logo");
-        const navLinks = document.getElementById("desktop-nav-links");
-        if (!logo || !navLinks) return;
-        const navLeft = navLinks.getBoundingClientRect().left;
-        const center = navLeft / 2;
-        const logoWidth = logo.getBoundingClientRect().width;
-        logo.style.left = `${center - logoWidth / 2}px`;
-    }
-    positionDesktopLogo();
-    window.addEventListener("resize", positionDesktopLogo);
-
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
 
