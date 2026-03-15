@@ -195,26 +195,27 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
             <!-- Hamburger button (mobile/tablet) -->
             <button
                 type="button"
-                class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gold hover:bg-white/10"
+                class="lg:hidden relative w-7 h-5 mr-2 cursor-pointer transition-all duration-500 ease-in-out group before:absolute before:-inset-3 before:content-['']"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
                 id="mobile-menu-button"
             >
-                <svg
-                    class="h-7 w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    aria-hidden="true"
+                <span
+                    class="absolute block h-0.5 w-full bg-gold rounded-sm left-0 top-0 opacity-100 transition-all duration-250 ease-in-out group-[.navicon-open]:top-2 group-[.navicon-open]:w-0 group-[.navicon-open]:left-1/2"
                 >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                    >
-                    </path>
-                </svg>
+                </span>
+                <span
+                    class="absolute block h-0.5 w-full bg-gold rounded-sm left-0 top-2 opacity-100 transition-all duration-250 ease-in-out group-[.navicon-open]:rotate-45"
+                >
+                </span>
+                <span
+                    class="absolute block h-0.5 w-full bg-gold rounded-sm left-0 top-2 opacity-100 transition-all duration-250 ease-in-out group-[.navicon-open]:-rotate-45"
+                >
+                </span>
+                <span
+                    class="absolute block h-0.5 w-full bg-gold rounded-sm left-0 top-4 opacity-100 transition-all duration-250 ease-in-out group-[.navicon-open]:top-2 group-[.navicon-open]:w-0 group-[.navicon-open]:left-1/2"
+                >
+                </span>
             </button>
         </div>
     </div>
@@ -347,10 +348,12 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
         if (isOpen) {
             mobileMenu!.style.transform = "translateY(-100vh)";
             menuButton.setAttribute("aria-expanded", "false");
+            menuButton.classList.remove("navicon-open");
             document.body.classList.remove("overflow-hidden");
         } else {
             mobileMenu!.style.transform = "translateY(0px)";
             menuButton.setAttribute("aria-expanded", "true");
+            menuButton.classList.add("navicon-open");
             document.body.classList.add("overflow-hidden");
         }
     });
