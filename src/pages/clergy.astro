@@ -1,8 +1,11 @@
 ---
 import Main from "@layouts/Main.astro";
+import PageBanner from "@components/PageBanner.astro";
 import * as m from "@paraglide/messages.js";
 ---
 
 <Main title={m.CLERGY_PAGE_TITLE()} description={""}>
-    <h1>{m.CLERGY_PAGE_TITLE()}</h1>
+    <div class="min-h-screen bg-shadow">
+        <PageBanner title={m.CLERGY_PAGE_TITLE()} />
+    </div>
 </Main>

@@ -8,13 +8,55 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'playfair-display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'playfair-display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-Italic-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'lora';
+    src: url('/fonts/lora/Lora-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'lora';
+    src: url('/fonts/lora/Lora-Italic-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 @theme {
     --font-cormorant: 'cormorant', serif;
+    --font-playfair: 'playfair-display', serif;
+    --font-lora: 'lora', serif;
 	--color-gold: #a27f2e;
 	--color-platinum: #ececec;
     --color-shadow: #161925;
 }
 
 html, body {
-	background-color: transparent;
+	background-color: #ececec;
+}
+
+* {
+	scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+	display: none;
 }

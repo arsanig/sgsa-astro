@@ -20,17 +20,9 @@ const { title = m.LAYOUT_SITE_TITLE(), description = "" } = Astro.props;
     <head>
         <Head title={title} description={description} />
     </head>
-    <body class="relative min-h-screen w-full">
-        <Image
-            src={bosomOfFather}
-            alt=""
-            class="fixed inset-0 h-full w-full object-cover object-center -z-10"
-            aria-hidden="true"
-            loading="eager"
-            fetchpriority="high"
-        />
-        <main class="min-h-screen">
-            <Nav />
+    <body>
+        <Nav />
+        <main>
             <slot />
         </main>
         <Footer />

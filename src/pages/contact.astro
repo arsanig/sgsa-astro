@@ -6,15 +6,16 @@ import * as m from "@paraglide/messages.js";
 ---
 
 <Main title={m.NAV_CONTACT()} description={""}>
-    <PageBanner title={m.CONTACT_PAGE_TITLE()} />
-    <div class="bg-platinum/80 p-6 md:p-18">
+    <div class="min-h-screen bg-shadow">
+        <PageBanner title={m.CONTACT_PAGE_TITLE()} />
+        <div class="bg-platinum/80 p-6 md:p-18">
         <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Get in touch with us</h2>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a
                 href="http://eepurl.com/wb3kP"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-base hover:opacity-80 transition-opacity w-full sm:w-64"
+                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
             >
                 <Image
                     src="/icons/inbox.svg"
@@ -27,7 +28,7 @@ import * as m from "@paraglide/messages.js";
             </a>
             <a
                 href="tel:+16137418000"
-                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-base hover:opacity-80 transition-opacity w-full sm:w-64"
+                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
             >
                 <Image
                     src="/icons/phone.svg"
@@ -40,8 +41,67 @@ import * as m from "@paraglide/messages.js";
             </a>
         </div>
     </div>
-    <div class="bg-shadow/70 p-18">
-        <h2 class="text-center text-lg md:text-xl font-bold text-platinum mb-6">Book time with one of the Fathers</h2>
+    <div class="bg-shadow/70 p-6 md:p-18">
+        <h2 class="text-center text-lg md:text-xl font-bold text-platinum mb-8">Book time with one of the Fathers</h2>
+
+        <!-- Pill Switcher -->
+        <div class="fathers-switcher max-w-2xl mx-auto">
+            <div class="pill-container relative flex bg-shadow rounded-full p-1 md:p-2 border border-gold/30 mx-auto w-fit">
+                <input
+                    type="radio"
+                    id="pill-anthony"
+                    name="father"
+                    value="anthony"
+                    class="sr-only peer/anthony"
+                    checked
+                />
+                <input type="radio" id="pill-cyril" name="father" value="cyril" class="sr-only peer/cyril" />
+                <input type="radio" id="pill-matthew" name="father" value="matthew" class="sr-only peer/matthew" />
+
+                <div
+                    class="pill-highlight absolute top-1 bottom-1 md:top-2 md:bottom-2 rounded-full bg-gold transition-all duration-300 ease-in-out"
+                >
+                </div>
+
+                <label
+                    for="pill-anthony"
+                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                >
+                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
+                    <span>Father Anthony</span>
+                </label>
+                <label
+                    for="pill-cyril"
+                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                >
+                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
+                    <span>Father Cyril</span>
+                </label>
+                <label
+                    for="pill-matthew"
+                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                >
+                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
+                    <span>Father Matthew</span>
+                </label>
+            </div>
+
+            <!-- Content Panels -->
+            <div class="mt-8 text-center">
+                <div id="content-anthony" class="father-content">
+                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Anthony</h3>
+                    <p class="text-platinum/80">Content for Fr. Anthony goes here.</p>
+                </div>
+                <div id="content-cyril" class="father-content hidden">
+                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Cyril</h3>
+                    <p class="text-platinum/80">Content for Fr. Cyril goes here.</p>
+                </div>
+                <div id="content-matthew" class="father-content hidden">
+                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Matthew</h3>
+                    <p class="text-platinum/80">Content for Fr. Matthew goes here.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="bg-platinum/80 p-6 md:p-18">
         <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Map & Directions</h2>
@@ -56,5 +116,44 @@ import * as m from "@paraglide/messages.js";
             >
             </iframe>
         </div>
+        </div>
     </div>
 </Main>
+
+<script>
+    const pills = document.querySelectorAll<HTMLInputElement>('input[name="father"]');
+    const labels = document.querySelectorAll<HTMLLabelElement>(".pill-label");
+    const highlight = document.querySelector<HTMLDivElement>(".pill-highlight");
+    const contents = document.querySelectorAll<HTMLDivElement>(".father-content");
+
+    function updatePills() {
+        const checked = document.querySelector<HTMLInputElement>('input[name="father"]:checked');
+        if (!checked || !highlight) return;
+
+        const activeLabel = document.querySelector<HTMLLabelElement>(`label[for="${checked.id}"]`);
+        if (!activeLabel) return;
+
+        // Move highlight
+        highlight.style.left = `${activeLabel.offsetLeft}px`;
+        highlight.style.width = `${activeLabel.offsetWidth}px`;
+
+        // Update label colors
+        labels.forEach((label) => {
+            label.classList.remove("text-shadow");
+            label.classList.add("text-platinum");
+        });
+        activeLabel.classList.remove("text-platinum");
+        activeLabel.classList.add("text-shadow");
+
+        // Switch content
+        contents.forEach((c) => c.classList.add("hidden"));
+        const value = checked.value;
+        document.getElementById(`content-${value}`)?.classList.remove("hidden");
+    }
+
+    pills.forEach((pill) => pill.addEventListener("change", updatePills));
+    updatePills();
+
+    // Recalculate on resize
+    window.addEventListener("resize", updatePills);
+</script>

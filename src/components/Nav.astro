@@ -39,12 +39,14 @@ const dropdowns = [
 ];
 
 const linkClasses = (href: string) =>
-    isActive(href) ? "font-cormorant italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4" : "font-cormorant italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+    isActive(href)
+        ? "font-playfair italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-playfair italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const mobileLinkClasses = (href: string) =>
     isActive(href)
-        ? "font-cormorant italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
-        : "font-cormorant italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+        ? "font-playfair italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-playfair italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isActive(l.href));
 ---
@@ -58,13 +60,13 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
             </a>
             <!-- Desktop: logo left, nav links centered -->
             <div class="hidden lg:grid grid-cols-[auto_1fr_auto] items-center w-full">
-                <a href="/" class="flex-shrink-0">
+                <a href="/" class="shrink-0">
                     <img src="/icons/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-20 w-auto" />
                 </a>
                 <div class="flex items-center justify-center gap-4 xl:gap-10">
                     {
                         navLinks.slice(0, 1).map(({ href, label }) => (
-                            <a href={href} class:list={["px-3 py-2 font-medium transition-colors", linkClasses(href)]}>
+                            <a href={href} class:list={["px-3 py-2 transition-colors", linkClasses(href)]}>
                                 {label}
                             </a>
                         ))
@@ -76,7 +78,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-2 xl:px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-2 xl:px-5 py-2 font-playfair italic text-lg lg:text-xl h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -126,7 +128,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 
                     {
                         navLinks.slice(1).map(({ href, label }) => (
-                            <a href={href} class:list={["px-3 py-2 font-medium transition-colors", linkClasses(href)]}>
+                            <a href={href} class:list={["px-3 py-2 transition-colors", linkClasses(href)]}>
                                 {label}
                             </a>
                         ))
@@ -138,7 +140,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-2 xl:px-5 py-2 font-cormorant italic text-lg lg:text-xl font-medium h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-2 xl:px-5 py-2 font-playfair italic text-lg lg:text-xl h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -225,15 +227,12 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
     class="lg:hidden fixed left-0 right-0 h-[calc(100vh-3.5rem)] z-50 overflow-y-auto transition-transform duration-300 ease-in-out"
     style="top: 3.5rem; transform: translateY(-100vh);"
 >
-    <div class="px-2 pt-2 pb-3 space-y-1 min-h-full bg-platinum">
+    <div class="px-2 pt-2 pb-24 space-y-1 min-h-full bg-platinum">
         {
             navLinks.slice(0, 1).map(({ href, label }) => (
                 <a
                     href={href}
-                    class:list={[
-                        "block px-3 py-2 rounded-md text-xl font-medium transition-colors",
-                        mobileLinkClasses(href),
-                    ]}
+                    class:list={["block px-3 py-2 rounded-md text-xl transition-colors", mobileLinkClasses(href)]}
                 >
                     {label}
                 </a>
@@ -247,7 +246,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-cormorant italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair italic text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}
@@ -287,10 +286,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
             navLinks.slice(1).map(({ href, label }) => (
                 <a
                     href={href}
-                    class:list={[
-                        "block px-3 py-2 rounded-md text-xl font-medium transition-colors",
-                        mobileLinkClasses(href),
-                    ]}
+                    class:list={["block px-3 py-2 rounded-md text-xl transition-colors", mobileLinkClasses(href)]}
                 >
                     {label}
                 </a>
@@ -304,7 +300,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-cormorant italic text-xl font-medium text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair italic text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}

@@ -1,11 +1,14 @@
 ---
 import Main from "@layouts/Main.astro";
+import PageBanner from "@components/PageBanner.astro";
 import PasswordGate from "@components/PasswordGate.astro";
 import * as m from "@paraglide/messages.js";
 ---
 
 <Main title={m.SERVANTS_PAGE_TITLE()} description={""}>
     <PasswordGate>
-        <h1>{m.SERVANTS_PAGE_TITLE()}</h1>
+        <div class="min-h-screen bg-shadow">
+            <PageBanner title={m.SERVANTS_PAGE_TITLE()} />
+        </div>
     </PasswordGate>
 </Main>
