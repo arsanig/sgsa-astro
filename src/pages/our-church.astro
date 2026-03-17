@@ -2,10 +2,67 @@
 import Main from "@layouts/Main.astro";
 import PageBanner from "@components/PageBanner.astro";
 import * as m from "@paraglide/messages.js";
+import stMark from "@assets/images/st-mark.webp";
 ---
 
-<Main title={m.NAV_OUR_CHURCH()} description={""}>
-    <div class="min-h-screen bg-shadow">
-        <PageBanner title={m.OUR_CHURCH_PAGE_TITLE()} />
+<Main title={m.OUR_CHURCH_PAGE_TITLE()} description={""}>
+    <div
+        class="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+        style={`background-image: linear-gradient(color-mix(in srgb, var(--color-shadow) 85%, transparent), color-mix(in srgb, var(--color-shadow) 85%, transparent)), url('${stMark.src}');`}
+    >
+        <PageBanner title={m.OUR_CHURCH_PAGE_TITLE()} variant="inverted" />
+        <section class="w-full bg-platinum py-12 md:py-16 text-center">
+            <blockquote class="max-w-4xl mx-auto px-6">
+                <p class="text-lg md:text-2xl text-gold font-lora leading-relaxed text-justify">
+                    "...On one hand, its theology is based on nothing outside the scriptures. On the other hand, the
+                    doctrines agree in all parts with those of the Early Church i.e. the tradition which has the proper
+                    interpretation and application of the teachings of our Lord and the Apostles as understood and
+                    practiced by the Christians and the leaders of the Church during the period of the One Universal
+                    Church until the division of 451 A.D."
+                </p>
+                <cite class="block mt-4 text-base md:text-lg text-gold font-lora">
+                    Bishop Athanasius of Ben-Swef and Bahnassa (1977)
+                </cite>
+            </blockquote>
+        </section>
+        <section class="w-full py-12 md:py-16">
+            <div
+                class="max-w-4xl mx-auto px-6 space-y-6 text-platinum font-lora text-lg md:text-2xl leading-relaxed text-justify"
+            >
+                <p>
+                    The Coptic Church was established in the name of the Lord Jesus Christ by St. Mark the Evangelist in
+                    the city of Alexandria around 43 A.D. The church adheres to the Nicene Creed. St. Athanasius
+                    (296-373 A.D.), the twentieth Pope of the Coptic Church effectively defended the Doctrine of the
+                    Lord Jesus Christ's Divinity at the Council of Nicea in 325 A.D. His affirmation of the doctrine
+                    earned him the title; "Father of Orthodoxy" and St. Athanasius "the Apostolic".
+                </p>
+                <p>
+                    The term "Coptic" is derived from the Greek "Aigyptos" meaning "Egyptian". When the Arabs arrived in
+                    Egypt in the seventh century, they called the Egyptians "qibt". Thus the Arabic word "qibt" came to
+                    mean both "Egyptians" and "Christians".
+                </p>
+                <p>
+                    The term "Orthodoxy" here refers to the preservation of the "Original Faith" by the Copts who,
+                    throughout the ages, defended the Old Creed against the numerous attacks aimed at it.
+                </p>
+                <p>
+                    The Coptic Orthodox Church believes that the Holy Trinity: God The Father, God The Son, and God The
+                    Holy Spirit, are equal to each other in one unity; and that the Lord Jesus Christ is the only Savior
+                    of the world. Less changes have taken place in the Coptic Church than in any other church whether in
+                    the ritual or doctrine aspects and that the succession of the Coptic Patriarchs, Bishops, priests
+                    and Deacons has been continuous.
+                </p>
+                <p>
+                    St. George & St. Anthony is part of the <a
+                        href="https://eccopts.ca/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="underline underline-offset-4 hover:opacity-70 transition-opacity"
+                    >
+                        Coptic Orthodox Diocese of Ottawa, Montreal & Eastern Canada
+                    </a>.
+                </p>
+            </div>
+        </section>
     </div>
 </Main>

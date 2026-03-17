@@ -5,40 +5,51 @@ import bosomOfFather from "@assets/images/bosom-of-father.webp";
 ---
 
 <Main>
-    <div
-        class="bg-cover bg-center bg-no-repeat bg-fixed min-h-screen"
-        style={`background-image: url('${bosomOfFather.src}');`}
-    >
-        <section class="flex flex-col items-center justify-center text-center px-4 py-14 md:py-18">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                {m.HOME_BANNER_LINE1()}<br />
-                <span class="italic">{m.HOME_BANNER_LINE2()}</span>
-            </h1>
+    <div class="min-h-screen">
+        <section class="bg-platinum py-24 md:py-36 lg:py-44">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                <div class="flex-1 text-center lg:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gold leading-tight font-cormorant">
+                        {m.HOME_BANNER_LINE1()}<br />
+                        <span class="italic">{m.HOME_BANNER_LINE2()}</span>
+                    </h1>
+                </div>
+            </div>
         </section>
-        <section class="w-full bg-white/70 py-6 text-center">
+        <section class="w-full bg-shadow py-6 text-center">
             <blockquote class="max-w-xl mx-auto px-4">
-                <p class="text-lg md:text-xl italic text-gold">{m.HOME_VERSE_TEXT()}</p>
-                <cite class="block mt-2 text-sm text-gold/70 not-italic">[{m.HOME_VERSE_REF()}]</cite>
+                <p class="text-lg md:text-2xl text-platinum font-lora">{m.HOME_VERSE_TEXT()}</p>
+                <cite class="block mt-2 text-base md:text-lg text-platinum font-lora">
+                    {m.HOME_VERSE_REF()}
+                </cite>
             </blockquote>
         </section>
-        <section class="w-full max-w-5xl mx-auto px-4 py-12">
-            <h2 class="text-center text-2xl md:text-3xl font-bold text-white mb-6">{m.HOME_UPCOMING_SERVICES()}</h2>
-            <!-- Desktop: month view -->
-            <iframe
-                src="https://calendar.google.com/calendar/embed?ctz=America%2FNew_York&mode=MONTH&title=Service+Schedule&showCalendars=0&src=c_e1e56db6ebcb663b180c117d7ae5e62a5b356816fc36abd0ec44c7e55cd53f9a%40group.calendar.google.com&color=%23039BE5"
-                class="hidden md:block w-full h-181 rounded-lg shadow-lg border-0"
-                loading="lazy"
-                title={m.SCHEDULE_PAGE_TITLE()}
-            >
-            </iframe>
-            <!-- Mobile: schedule/agenda view -->
-            <iframe
-                src="https://calendar.google.com/calendar/embed?ctz=America%2FNew_York&mode=AGENDA&title=Service+Schedule&showPrint=0&showTabs=0&showCalendars=0&src=c_e1e56db6ebcb663b180c117d7ae5e62a5b356816fc36abd0ec44c7e55cd53f9a%40group.calendar.google.com&color=%23039BE5"
-                class="md:hidden w-full h-150 rounded-lg shadow-lg border-0"
-                loading="lazy"
-                title={m.SCHEDULE_PAGE_TITLE()}
-            >
-            </iframe>
+        <section
+            class="relative w-full bg-cover bg-center bg-no-repeat py-12"
+            style={`background-image: url('${bosomOfFather.src}');`}
+        >
+            <div class="absolute inset-0 bg-platinum/80"></div>
+            <div class="relative max-w-5xl mx-auto px-4">
+                <h2 class="text-center text-2xl md:text-3xl font-playfair text-gold mb-6">
+                    {m.HOME_UPCOMING_SERVICES()}
+                </h2>
+                <!-- Desktop: month view -->
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?ctz=America%2FNew_York&mode=MONTH&title=Service+Schedule&showCalendars=0&src=c_e1e56db6ebcb663b180c117d7ae5e62a5b356816fc36abd0ec44c7e55cd53f9a%40group.calendar.google.com&color=%23039BE5"
+                    class="hidden md:block w-full h-181 rounded-lg shadow-lg border-0"
+                    loading="lazy"
+                    title={m.SCHEDULE_PAGE_TITLE()}
+                >
+                </iframe>
+                <!-- Mobile: schedule/agenda view -->
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?ctz=America%2FNew_York&mode=AGENDA&title=Service+Schedule&showPrint=0&showTabs=0&showCalendars=0&src=c_e1e56db6ebcb663b180c117d7ae5e62a5b356816fc36abd0ec44c7e55cd53f9a%40group.calendar.google.com&color=%23039BE5"
+                    class="md:hidden w-full h-150 rounded-lg shadow-lg border-0"
+                    loading="lazy"
+                    title={m.SCHEDULE_PAGE_TITLE()}
+                >
+                </iframe>
+            </div>
         </section>
     </div>
 </Main>

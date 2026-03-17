@@ -2,10 +2,133 @@
 import Main from "@layouts/Main.astro";
 import PageBanner from "@components/PageBanner.astro";
 import * as m from "@paraglide/messages.js";
+import hgBishopBoulos from "@assets/images/hg-bishop-boulos.webp";
+import frAnthony from "@assets/images/fr-anthony-mourad.webp";
+import frCyril from "@assets/images/fr-cyril-guirguis.webp";
+import frMatthew from "@assets/images/fr-matthew-messiha.webp";
+import dcnPhilopateer from "@assets/images/dcn-philopateer-khalil.webp";
+import dcnAntonious from "@assets/images/dcn-antonious-phillips.webp";
+import sgsaOutside from "@assets/images/sgsa-outside.webp";
 ---
 
 <Main title={m.CLERGY_PAGE_TITLE()} description={""}>
-    <div class="min-h-screen bg-shadow">
-        <PageBanner title={m.CLERGY_PAGE_TITLE()} />
+    <div
+        class="bg-cover bg-center bg-no-repeat bg-fixed"
+        style={`background-image: linear-gradient(color-mix(in srgb, var(--color-shadow) 92%, transparent), color-mix(in srgb, var(--color-shadow) 92%, transparent)), url('${sgsaOutside.src}');`}
+    >
+        <PageBanner title={m.CLERGY_PAGE_TITLE()} bg="bg-platinum" />
+
+        <!-- Bishop -->
+        <section class="w-full py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-2xl md:text-3xl font-playfair text-platinum mb-8">Bishop</h2>
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
+                    <img
+                        src={hgBishopBoulos.src}
+                        alt="H.G. Bishop Boulos"
+                        class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg shrink-0"
+                    />
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            H.G. Bishop Boulos
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Bishop of the Coptic Orthodox Diocese of Ottawa, Montreal, and Eastern Canada
+                        </p>
+                        <a
+                            href="https://eccopts.ca/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mt-5 inline-block self-center md:self-start px-5 py-2 border border-platinum/40 rounded-lg text-sm font-lora text-platinum hover:bg-platinum/10 transition-colors"
+                        >
+                            Visit Diocese Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priests -->
+        <section class="w-full py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-2xl md:text-3xl font-playfair text-platinum mb-8">Priests</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="flex flex-col items-center">
+                        <img
+                            src={frAnthony.src}
+                            alt="Fr. Anthony Mourad"
+                            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg"
+                        />
+                        <h3 class="mt-5 text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            Fr. Anthony Mourad
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Priest
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img
+                            src={frCyril.src}
+                            alt="Fr. Cyril Guirguis"
+                            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg"
+                        />
+                        <h3 class="mt-5 text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            Fr. Cyril Guirguis
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Priest
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img
+                            src={frMatthew.src}
+                            alt="Fr. Matthew Messiha"
+                            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg"
+                        />
+                        <h3 class="mt-5 text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            Fr. Matthew Messiha
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Priest
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deacons -->
+        <section class="w-full py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-2xl md:text-3xl font-playfair text-platinum mb-8">Deacons</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-2xl mx-auto">
+                    <div class="flex flex-col items-center">
+                        <img
+                            src={dcnPhilopateer.src}
+                            alt="Dcn. Philopateer Khalil"
+                            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg"
+                        />
+                        <h3 class="mt-5 text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            Dcn. Philopateer Khalil
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Deacon
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img
+                            src={dcnAntonious.src}
+                            alt="Dcn. Antonious Phillips"
+                            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg"
+                        />
+                        <h3 class="mt-5 text-lg md:text-xl font-bold font-lora text-platinum tracking-wide">
+                            Dcn. Antonious Phillips
+                        </h3>
+                        <p class="mt-1 text-xs md:text-sm font-lora text-platinum/60 uppercase tracking-widest">
+                            Deacon
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </Main>

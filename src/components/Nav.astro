@@ -7,46 +7,54 @@ const isActive = (path: string) => currentPath === path || (path !== "/" && curr
 const navLinks = [
     { href: "/", label: m.NAV_HOME() },
     { href: "/contact", label: m.NAV_CONTACT() },
-    { href: "/schedule", label: m.NAV_SCHEDULE() },
-    { href: "/donations", label: m.NAV_DONATIONS() },
+    { href: "/donations", label: m.DONATIONS_PAGE_TITLE() },
 ];
 
 const aboutLinks = [
-    { href: "/our-church", label: m.NAV_OUR_CHURCH() },
-    { href: "/clergy", label: m.NAV_CLERGY() },
-    { href: "/board-of-deacons", label: m.NAV_BOARD_OF_DEACONS() },
+    { href: "/our-church", label: m.OUR_CHURCH_PAGE_TITLE() },
+    { href: "/clergy", label: m.CLERGY_PAGE_TITLE() },
+    { href: "/board-of-deacons", label: m.BOARD_OF_DEACONS_PAGE_TITLE() },
+    { href: "/relics", label: m.RELICS_PAGE_TITLE() },
 ];
 
 const resourceLinks = [
     { href: "/beechwood", label: m.NAV_BEECHWOOD() },
-    { href: "/booklets", label: m.NAV_BOOKLETS() },
-    { href: "/cottage", label: m.NAV_COTTAGE() },
-    { href: "/deacons-schedule", label: m.NAV_DEACONS_SCHEDULE() },
-    { href: "/library", label: m.NAV_LIBRARY() },
-    { href: "/lighthouse", label: m.NAV_LIGHTHOUSE() },
+    { href: "/cottage", label: m.COTTAGE_PAGE_TITLE() },
+    { href: "/lighthouse", label: m.LIGHTHOUSE_PAGE_TITLE() },
+    { href: "/new-comers", label: m.NEW_COMERS_PAGE_TITLE() },
+    { href: "/sacraments", label: m.SACRAMENTS_PAGE_TITLE() },
+    { href: "/servants", label: m.SERVANTS_PAGE_TITLE() },
+];
+
+const mediaLinks = [
+    { href: "/posts", label: m.POSTS_PAGE_TITLE() },
     { href: "/live", label: m.NAV_LIVE() },
-    { href: "/new-comers", label: m.NAV_NEW_COMERS() },
-    { href: "/posts", label: m.NAV_POSTS() },
-    { href: "/relics", label: m.NAV_RELICS() },
-    { href: "/sacraments", label: m.NAV_SACRAMENTS() },
-    { href: "/sermons", label: m.NAV_SERMONS() },
-    { href: "/servants", label: m.NAV_SERVANTS() },
+    { href: "/sermons", label: m.SERMONS_PAGE_TITLE() },
+    { href: "/booklets", label: m.BOOKLETS_PAGE_TITLE() },
+    { href: "/library", label: m.LIBRARY_PAGE_TITLE() },
+];
+
+const scheduleLinks = [
+    { href: "/schedule", label: m.NAV_UPCOMING_SERVICES() },
+    { href: "/deacons-schedule", label: m.NAV_DEACONS_SCHEDULE() },
 ];
 
 const dropdowns = [
     { id: "about", label: m.NAV_ABOUT(), links: aboutLinks },
+    { id: "schedule", label: m.NAV_SCHEDULE(), links: scheduleLinks },
+    { id: "media", label: m.NAV_MEDIA(), links: mediaLinks },
     { id: "resources", label: m.NAV_RESOURCES(), links: resourceLinks },
 ];
 
 const linkClasses = (href: string) =>
     isActive(href)
-        ? "font-playfair italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
-        : "font-playfair italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+        ? "font-playfair text-lg lg:text-base xl:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-playfair text-lg lg:text-base xl:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const mobileLinkClasses = (href: string) =>
     isActive(href)
-        ? "font-playfair italic text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
-        : "font-playfair italic text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
+        ? "font-playfair text-lg lg:text-xl text-gold underline decoration-gold underline-offset-4"
+        : "font-playfair text-lg lg:text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4";
 
 const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isActive(l.href));
 ---
@@ -66,7 +74,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                 <div class="flex items-center justify-center gap-4 xl:gap-10">
                     {
                         navLinks.slice(0, 1).map(({ href, label }) => (
-                            <a href={href} class:list={["px-3 py-2 transition-colors", linkClasses(href)]}>
+                            <a href={href} class:list={["px-1 xl:px-3 py-2 transition-colors", linkClasses(href)]}>
                                 {label}
                             </a>
                         ))
@@ -78,7 +86,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-2 xl:px-5 py-2 font-playfair italic text-lg lg:text-xl h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-1 xl:px-5 py-2 font-playfair text-base xl:text-xl h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -128,7 +136,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 
                     {
                         navLinks.slice(1).map(({ href, label }) => (
-                            <a href={href} class:list={["px-3 py-2 transition-colors", linkClasses(href)]}>
+                            <a href={href} class:list={["px-1 xl:px-3 py-2 transition-colors", linkClasses(href)]}>
                                 {label}
                             </a>
                         ))
@@ -140,7 +148,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                                 <button
                                     type="button"
                                     class:list={[
-                                        "flex items-center px-2 xl:px-5 py-2 font-playfair italic text-lg lg:text-xl h-14 lg:h-20 transition-colors",
+                                        "flex items-center px-1 xl:px-5 py-2 font-playfair text-base xl:text-xl h-14 lg:h-20 transition-colors",
                                         links.some((l) => isActive(l.href))
                                             ? "text-gold underline decoration-gold underline-offset-4"
                                             : "text-gold hover:underline hover:decoration-gold hover:underline-offset-4",
@@ -247,7 +255,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair italic text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}
@@ -301,7 +309,7 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                     <>
                         <button
                             type="button"
-                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair italic text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
+                            class="w-full flex justify-between items-center px-3 py-2 rounded-md font-playfair text-xl text-gold hover:underline hover:decoration-gold hover:underline-offset-4 transition-colors"
                             data-accordion={id}
                         >
                             {label}
@@ -372,6 +380,11 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
                 wrapper.classList.add("dropdown-open");
                 btn.setAttribute("aria-expanded", "true");
             }
+        });
+
+        wrapper.addEventListener("mouseleave", () => {
+            wrapper.classList.remove("dropdown-open");
+            btn?.setAttribute("aria-expanded", "false");
         });
     });
 

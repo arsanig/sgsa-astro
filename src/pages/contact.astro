@@ -3,119 +3,126 @@ import Main from "@layouts/Main.astro";
 import PageBanner from "@components/PageBanner.astro";
 import { Image } from "astro:assets";
 import * as m from "@paraglide/messages.js";
+import frAnthony from "@assets/images/fr-anthony-mourad.webp";
+import frCyril from "@assets/images/fr-cyril-guirguis.webp";
+import frMatthew from "@assets/images/fr-matthew-messiha.webp";
 ---
 
 <Main title={m.NAV_CONTACT()} description={""}>
-    <div class="min-h-screen bg-shadow">
+    <div class="min-h-screen">
         <PageBanner title={m.CONTACT_PAGE_TITLE()} />
         <div class="bg-platinum/80 p-6 md:p-18">
-        <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Get in touch with us</h2>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-                href="http://eepurl.com/wb3kP"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
-            >
-                <Image
-                    src="/icons/inbox.svg"
-                    alt="Email"
-                    width={16}
-                    height={16}
-                    style="filter: brightness(0) invert(1) brightness(0.925);"
-                />
-                Join our email newsletter
-            </a>
-            <a
-                href="tel:+16137418000"
-                class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
-            >
-                <Image
-                    src="/icons/phone.svg"
-                    alt="Phone"
-                    width={16}
-                    height={16}
-                    style="filter: brightness(0) invert(1) brightness(0.925);"
-                />
-                +1 (613) 741-8000
-            </a>
+            <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Get in touch with us</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a
+                    href="http://eepurl.com/wb3kP"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
+                >
+                    <Image
+                        src="/icons/inbox.svg"
+                        alt="Email"
+                        width={16}
+                        height={16}
+                        style="filter: brightness(0) invert(1) brightness(0.925);"
+                    />
+                    Join our email newsletter
+                </a>
+                <a
+                    href="tel:+16137418000"
+                    class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
+                >
+                    <Image
+                        src="/icons/phone.svg"
+                        alt="Phone"
+                        width={16}
+                        height={16}
+                        style="filter: brightness(0) invert(1) brightness(0.925);"
+                    />
+                    +1 (613) 741-8000
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="bg-shadow/70 p-6 md:p-18">
-        <h2 class="text-center text-lg md:text-xl font-bold text-platinum mb-8">Book time with one of the Fathers</h2>
+        <div class="bg-shadow/70 p-6 md:p-18">
+            <h2 class="text-center text-lg md:text-xl font-bold text-platinum mb-8">
+                Book time with one of the Fathers
+            </h2>
 
-        <!-- Pill Switcher -->
-        <div class="fathers-switcher max-w-2xl mx-auto">
-            <div class="pill-container relative flex bg-shadow rounded-full p-1 md:p-2 border border-gold/30 mx-auto w-fit">
-                <input
-                    type="radio"
-                    id="pill-anthony"
-                    name="father"
-                    value="anthony"
-                    class="sr-only peer/anthony"
-                    checked
-                />
-                <input type="radio" id="pill-cyril" name="father" value="cyril" class="sr-only peer/cyril" />
-                <input type="radio" id="pill-matthew" name="father" value="matthew" class="sr-only peer/matthew" />
-
+            <!-- Pill Switcher -->
+            <div class="fathers-switcher max-w-2xl mx-auto">
                 <div
-                    class="pill-highlight absolute top-1 bottom-1 md:top-2 md:bottom-2 rounded-full bg-gold transition-all duration-300 ease-in-out"
+                    class="pill-container relative flex bg-shadow rounded-full p-1 md:p-2 border border-gold/30 mx-auto w-fit"
                 >
+                    <input
+                        type="radio"
+                        id="pill-anthony"
+                        name="father"
+                        value="anthony"
+                        class="sr-only peer/anthony"
+                        checked
+                    />
+                    <input type="radio" id="pill-cyril" name="father" value="cyril" class="sr-only peer/cyril" />
+                    <input type="radio" id="pill-matthew" name="father" value="matthew" class="sr-only peer/matthew" />
+
+                    <div
+                        class="pill-highlight absolute top-1 bottom-1 md:top-2 md:bottom-2 rounded-full bg-gold transition-all duration-300 ease-in-out"
+                    >
+                    </div>
+
+                    <label
+                        for="pill-anthony"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                    >
+                        <img src={frAnthony.src} alt="Fr. Anthony" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
+                        <span>Father Anthony</span>
+                    </label>
+                    <label
+                        for="pill-cyril"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                    >
+                        <img src={frCyril.src} alt="Fr. Cyril" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
+                        <span>Father Cyril</span>
+                    </label>
+                    <label
+                        for="pill-matthew"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                    >
+                        <img src={frMatthew.src} alt="Fr. Matthew" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
+                        <span>Father Matthew</span>
+                    </label>
                 </div>
 
-                <label
-                    for="pill-anthony"
-                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
-                >
-                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
-                    <span>Father Anthony</span>
-                </label>
-                <label
-                    for="pill-cyril"
-                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
-                >
-                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
-                    <span>Father Cyril</span>
-                </label>
-                <label
-                    for="pill-matthew"
-                    class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
-                >
-                    <span class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-platinum/30 border border-platinum/50 shrink-0"></span>
-                    <span>Father Matthew</span>
-                </label>
-            </div>
-
-            <!-- Content Panels -->
-            <div class="mt-8 text-center">
-                <div id="content-anthony" class="father-content">
-                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Anthony</h3>
-                    <p class="text-platinum/80">Content for Fr. Anthony goes here.</p>
-                </div>
-                <div id="content-cyril" class="father-content hidden">
-                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Cyril</h3>
-                    <p class="text-platinum/80">Content for Fr. Cyril goes here.</p>
-                </div>
-                <div id="content-matthew" class="father-content hidden">
-                    <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Matthew</h3>
-                    <p class="text-platinum/80">Content for Fr. Matthew goes here.</p>
+                <!-- Content Panels -->
+                <div class="mt-8 text-center">
+                    <div id="content-anthony" class="father-content">
+                        <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Anthony</h3>
+                        <p class="text-platinum/80">Content for Fr. Anthony goes here.</p>
+                    </div>
+                    <div id="content-cyril" class="father-content hidden">
+                        <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Cyril</h3>
+                        <p class="text-platinum/80">Content for Fr. Cyril goes here.</p>
+                    </div>
+                    <div id="content-matthew" class="father-content hidden">
+                        <h3 class="text-xl font-bold text-gold mb-2 font-playfair">Fr. Matthew</h3>
+                        <p class="text-platinum/80">Content for Fr. Matthew goes here.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bg-platinum/80 p-6 md:p-18">
-        <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Map & Directions</h2>
-        <div class="w-full md:h-112.5">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8317385341106!2d-75.6209568!3d45.4328931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0fecb67a1c89%3A0xd2cc27d126b08d44!2sSt.%20George%20%26%20St.%20Anthony%20Coptic%20Orthodox%20Church!5e0!3m2!1sen!2sca!4v1773442718107!5m2!1sen!2sca"
-                class="w-full h-64 md:h-full rounded-lg"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
-        </div>
+        <div class="bg-platinum/80 p-6 md:p-18">
+            <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Map & Directions</h2>
+            <div class="w-full md:h-112.5">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8317385341106!2d-75.6209568!3d45.4328931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0fecb67a1c89%3A0xd2cc27d126b08d44!2sSt.%20George%20%26%20St.%20Anthony%20Coptic%20Orthodox%20Church!5e0!3m2!1sen!2sca!4v1773442718107!5m2!1sen!2sca"
+                    class="w-full h-64 md:h-full rounded-lg"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                >
+                </iframe>
+            </div>
         </div>
     </div>
 </Main>
