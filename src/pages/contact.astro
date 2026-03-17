@@ -9,48 +9,56 @@ import frMatthew from "@assets/images/fr-matthew-messiha.webp";
 ---
 
 <Main title={m.NAV_CONTACT()} description={""}>
-    <div class="min-h-screen">
+    <div>
         <PageBanner title={m.CONTACT_PAGE_TITLE()} />
-        <div class="bg-platinum/80 p-6 md:p-18">
-            <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Get in touch with us</h2>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a
-                    href="http://eepurl.com/wb3kP"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
-                >
-                    <Image
-                        src="/icons/inbox.svg"
-                        alt="Email"
-                        width={16}
-                        height={16}
-                        style="filter: brightness(0) invert(1) brightness(0.925);"
-                    />
-                    Join our email newsletter
-                </a>
-                <a
-                    href="tel:+16137418000"
-                    class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity w-full sm:w-64"
-                >
-                    <Image
-                        src="/icons/phone.svg"
-                        alt="Phone"
-                        width={16}
-                        height={16}
-                        style="filter: brightness(0) invert(1) brightness(0.925);"
-                    />
-                    +1 (613) 741-8000
-                </a>
-            </div>
+        <div class="bg-shadow p-6 md:p-18 min-h-[25vh] flex flex-col">
+            <h2 class="text-center text-xl md:text-2xl font-playfair text-platinum mb-6">Get in Touch with Us</h2>
+            <div class="flex flex-row gap-4 lg:gap-16 items-center justify-center flex-1">
+                    <div class="text-left">
+                        <h3 class="text-base md:text-lg font-lora text-gold mb-2">Mailing Address</h3>
+                        <p class="text-base md:text-lg font-lora text-platinum">
+                            1081 Cadboro Rd, <br />Gloucester,<br />ON K1J 7T8
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <a
+                            href="http://eepurl.com/wb3kP"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity whitespace-nowrap"
+                        >
+                            <Image
+                                src="/icons/inbox.svg"
+                                alt="Email"
+                                width={16}
+                                height={16}
+                                style="filter: brightness(0) invert(1) brightness(0.925);"
+                            />
+                            Join Our Email Newsletter
+                        </a>
+                        <a
+                            href="tel:+16137418000"
+                            class="inline-flex items-center justify-center gap-2 bg-gold text-platinum px-6 py-3 rounded-lg text-sm md:text-lg hover:opacity-80 transition-opacity whitespace-nowrap"
+                        >
+                            <Image
+                                src="/icons/phone.svg"
+                                alt="Phone"
+                                width={16}
+                                height={16}
+                                style="filter: brightness(0) invert(1) brightness(0.925);"
+                            />
+                            +1 (613) 741-8000
+                        </a>
+                    </div>
+                </div>
         </div>
-        <div class="bg-shadow/70 p-6 md:p-18">
-            <h2 class="text-center text-lg md:text-xl font-bold text-platinum mb-8">
-                Book time with one of the Fathers
+        <div class="bg-platinum p-6 md:p-18 min-h-[25vh]">
+            <h2 class="text-center text-xl md:text-2xl font-playfair text-shadow mb-8">
+                Book Time with One of the Fathers
             </h2>
 
             <!-- Pill Switcher -->
-            <div class="fathers-switcher max-w-2xl mx-auto">
+            <div class="fathers-switcher max-w-4xl mx-auto">
                 <div
                     class="pill-container relative flex bg-shadow rounded-full p-1 md:p-2 border border-gold/30 mx-auto w-fit"
                 >
@@ -72,24 +80,36 @@ import frMatthew from "@assets/images/fr-matthew-messiha.webp";
 
                     <label
                         for="pill-anthony"
-                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 lg:px-12 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
                     >
-                        <img src={frAnthony.src} alt="Fr. Anthony" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
-                        <span>Father Anthony</span>
+                        <img
+                            src={frAnthony.src}
+                            alt="Fr. Anthony"
+                            class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0"
+                        />
+                        <span class="font-lora">Father Anthony</span>
                     </label>
                     <label
                         for="pill-cyril"
-                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 lg:px-12 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
                     >
-                        <img src={frCyril.src} alt="Fr. Cyril" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
-                        <span>Father Cyril</span>
+                        <img
+                            src={frCyril.src}
+                            alt="Fr. Cyril"
+                            class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0"
+                        />
+                        <span class="font-lora">Father Cyril</span>
                     </label>
                     <label
                         for="pill-matthew"
-                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
+                        class="pill-label relative z-10 flex items-center gap-2 px-3 py-1.5 md:px-7 md:py-4 lg:px-12 rounded-full cursor-pointer text-sm md:text-lg transition-colors duration-300"
                     >
-                        <img src={frMatthew.src} alt="Fr. Matthew" class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0" />
-                        <span>Father Matthew</span>
+                        <img
+                            src={frMatthew.src}
+                            alt="Fr. Matthew"
+                            class="w-6 h-6 md:w-10 md:h-10 rounded-full object-cover shrink-0"
+                        />
+                        <span class="font-lora">Father Matthew</span>
                     </label>
                 </div>
 
@@ -110,19 +130,16 @@ import frMatthew from "@assets/images/fr-matthew-messiha.webp";
                 </div>
             </div>
         </div>
-        <div class="bg-platinum/80 p-6 md:p-18">
-            <h2 class="text-center text-lg md:text-xl font-bold text-gold mb-6">Map & Directions</h2>
-            <div class="w-full md:h-112.5">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8317385341106!2d-75.6209568!3d45.4328931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0fecb67a1c89%3A0xd2cc27d126b08d44!2sSt.%20George%20%26%20St.%20Anthony%20Coptic%20Orthodox%20Church!5e0!3m2!1sen!2sca!4v1773442718107!5m2!1sen!2sca"
-                    class="w-full h-64 md:h-full rounded-lg"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                >
-                </iframe>
-            </div>
+        <div class="w-full h-64 md:h-112.5 min-h-[25vh]">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8317385341106!2d-75.6209568!3d45.4328931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0fecb67a1c89%3A0xd2cc27d126b08d44!2sSt.%20George%20%26%20St.%20Anthony%20Coptic%20Orthodox%20Church!5e0!3m2!1sen!2sca!4v1773442718107!5m2!1sen!2sca"
+                class="w-full h-full"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
         </div>
     </div>
 </Main>
@@ -149,8 +166,6 @@ import frMatthew from "@assets/images/fr-matthew-messiha.webp";
             label.classList.remove("text-shadow");
             label.classList.add("text-platinum");
         });
-        activeLabel.classList.remove("text-platinum");
-        activeLabel.classList.add("text-shadow");
 
         // Switch content
         contents.forEach((c) => c.classList.add("hidden"));

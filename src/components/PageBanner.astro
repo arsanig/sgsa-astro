@@ -1,14 +1,12 @@
 ---
 interface Props {
     title: string;
-    variant?: "standard" | "inverted";
+    textColor?: string;
     bg?: string;
 }
-const { title, variant = "standard", bg } = Astro.props;
-
-const textClass = variant === "inverted" ? "text-platinum" : "text-gold";
+const { title, bg, textColor = "text-gold" } = Astro.props;
 ---
 
 <div class:list={["w-full py-18", bg]}>
-    <h1 class:list={["text-center text-2xl md:text-3xl font-playfair", textClass]}>{title}</h1>
+    <h1 class:list={["text-center text-2xl md:text-3xl font-playfair", textColor]}>{title}</h1>
 </div>

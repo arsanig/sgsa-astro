@@ -62,10 +62,15 @@ const dropdownHasActive = (links: { href: string }[]) => links.some((l) => isAct
 <nav class="sticky top-0 z-60 bg-platinum shadow-sm">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-14 lg:h-20 items-center">
-            <!-- Mobile/Tablet logo -->
-            <a href="/" class="lg:hidden">
-                <img src="/icons/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-14 w-auto" />
+            <!-- Mobile/Tablet center logo -->
+            <a
+                href="/"
+                class="lg:hidden absolute left-1/2 -translate-x-1/2 top-0 z-70 bg-platinum rounded-full p-2 aspect-square flex items-center justify-center"
+            >
+                <img src="/icons/sgsa-logo-gold-shadow.svg" alt="SGSA Logo" class="h-16 w-auto" />
             </a>
+            <!-- Spacer for left side balance -->
+            <div class="lg:hidden"></div>
             <!-- Desktop: logo left, nav links centered -->
             <div class="hidden lg:grid grid-cols-[auto_1fr_auto] items-center w-full">
                 <a href="/" class="shrink-0">
